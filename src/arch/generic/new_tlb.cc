@@ -88,19 +88,24 @@ TLBEntry * insert(Addr vpn, const TlbEntry &entry, uint64_t pcid) {
 
 }
 
-TLBEntry * remove(----)
-    // AssociativeCache::findEntry(const Addr addr)
-    // AssociativeCache::invalidate(Entry *entry)
+/** FlushAll
+ * removes an index
+ * @AC: findEntry(const Addr addr), invalidate(Entry *entry)
+ * @params: none
+ * @result: none
+ */
+TLBEntry * remove(Addr addr) {
+    this->_cache.invalidate(findEntry(addr));
+}
    
-/**
+/** FlushAll
  * clears all entry in associative cache
+ * @AC: clear()
  * @params: none
  * @result: none
  */
 void flushAll() {
     this->_cache.clear()
-    // AssociateCache::clear()
-
 }
    
 void evictLRU(---)
