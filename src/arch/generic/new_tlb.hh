@@ -89,6 +89,11 @@ class TLBEntry : public CacheEntry, public Serializable
     {
         return (1 << logBytes);
     }
+    uint64_t nextSeq() 
+    { 
+      return ++lruSeq; 
+    }
+
 
 
 // [4] Extended from Serializable
